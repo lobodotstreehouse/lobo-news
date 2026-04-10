@@ -145,6 +145,27 @@ layout: default
         </article>
         {% endfor %}
       </div>
+
+      <div id="veltm" class="section-divider" style="margin-top: 56px;">
+        <span class="section-dot" style="background: var(--fleet-green);"></span>
+        <span class="section-divider__label">Lobo <span style="color:var(--burnt-coral)">/</span>VELTM</span>
+        <span class="section-divider__line"></span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
+        {% assign veltm_posts = site.posts | where: "categories", "veltm" %}
+        {% for post in veltm_posts limit:4 %}
+        <article class="card">
+          {% if post.hero_image %}
+          <img src="{{ post.hero_image | relative_url }}" alt="{{ post.title }}" class="card-img" loading="lazy">
+          {% endif %}
+          <div class="card-body">
+            <div class="card-meta"><span class="section-dot" style="background: var(--fleet-green);"></span>VELTM &middot; {{ post.date | date: "%b %-d" }}</div>
+            <h3 class="card-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+            <p class="card-excerpt">{{ post.excerpt | strip_html | truncatewords: 18 }}</p>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
     </div>
 
     <!-- ---- Sidebar ---- -->

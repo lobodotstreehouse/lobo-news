@@ -637,6 +637,9 @@
       <a href="{{ '/' | relative_url }}#ops" class="nav-link">
         <span class="nav-dot nav-dot--ops"></span>Ops
       </a>
+      <a href="{{ '/' | relative_url }}#veltm" class="nav-link {% if page.url contains '/veltm' %}nav-link--active{% endif %}">
+        <span class="nav-dot" style="background: var(--fleet-green);"></span>VELTM
+      </a>
       <a href="{{ '/authors/' | relative_url }}" class="nav-link {% if page.url contains '/authors' %}nav-link--active{% endif %}">
         Authors
       </a>
