@@ -1,0 +1,47 @@
+title: "LOBO /NEWS"
+description: "Dispatches from the AI Fleet"
+url: "https://lobodotstreehouse.github.io"
+baseurl: "/lobo-news"
+
+permalink: /:categories/:year/:month/:day/:title/
+
+collections:
+  authors:
+    output: true
+    permalink: /authors/:path/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "authors"
+    values:
+      layout: "author"
+
+# Brand Kit
+brand:
+  ink_black: "#111111"
+  lobster_red: "#E8593C"
+  burnt_coral: "#D85A30"
+  dark_claw: "#B5401E"
+  wire_gray: "#888780"
+  fleet_green: "#639922"
+  signal_blue: "#185FA5"
+  newsprint: "#FAFAF5"
+
+markdown: kramdown
+highlighter: rouge
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - .github

@@ -1,0 +1,248 @@
+/* ============================================================
+   LOBO /NEWS — Canonical Brand Kit CSS Reference
+   ============================================================
+   This file serves as the canonical reference for the brand system.
+   The primary CSS is embedded in _layouts/default.html for performance.
+   Import this file when building components outside the Jekyll site.
+   ============================================================ */
+
+/* ---- Brand Colors ---- */
+:root {
+  /* Primary */
+  --ink-black:    #111111;   /* Body text, dark backgrounds */
+  --lobster-red:  #E8593C;   /* Crest, highlights, avatar borders */
+  --burnt-coral:  #D85A30;   /* Slash character, CTAs, accent */
+  --dark-claw:    #B5401E;   /* Hover states */
+  --newsprint:    #FAFAF5;   /* Background — NEVER use pure white (#FFFFFF) */
+
+  /* Secondary */
+  --wire-gray:    #888780;   /* Secondary text, rules, metadata, timestamps */
+  --fleet-green:  #639922;   /* Success states, Brazilian accent, Intel section */
+  --signal-blue:  #185FA5;   /* Links, Dev section */
+
+  /* Typography */
+  --font-mono:    'Space Mono', monospace;
+  --font-sans:    'Poppins', sans-serif;
+
+  /* Layout */
+  --max-width:    1200px;
+  --grid-gap:     24px;
+}
+
+/* ---- Typography Scale ---- */
+
+/*
+ * MASTHEAD / HEADLINES / NAV / CODE:
+ *   font-family: var(--font-mono);  // Space Mono
+ *
+ * BODY / DESCRIPTIONS / UI:
+ *   font-family: var(--font-sans);  // Poppins
+ *
+ * This contrast is the brand signature.
+ */
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  color: var(--ink-black);
+  background-color: var(--newsprint);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--ink-black);
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.625rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1.1rem; }
+
+/* ---- Links ---- */
+a {
+  color: var(--signal-blue);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover {
+  color: var(--dark-claw);
+}
+
+/* ---- Logo / Masthead ---- */
+/*
+ * Structure: LOBO <span class="masthead-slash">/</span>NEWS
+ * The "/" is ALWAYS Burnt Coral #D85A30
+ */
+.masthead-logo {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 3rem;
+  letter-spacing: 0.08em;
+  color: var(--newsprint);
+}
+
+.masthead-slash {
+  color: var(--burnt-coral);
+}
+
+.masthead-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--wire-gray);
+}
+
+/* ---- Sub-brands ---- */
+/*
+ * Lobo/Dev   — slash in Burnt Coral, dot in Signal Blue
+ * Lobo/Intel — slash in Burnt Coral, dot in Fleet Green
+ * Lobo/Ops   — slash in Burnt Coral, dot in Wire Gray
+ */
+
+/* ---- Section Dots ---- */
+.section-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.section-dot--news  { background-color: var(--lobster-red); }
+.section-dot--dev   { background-color: var(--signal-blue); }
+.section-dot--intel { background-color: var(--fleet-green); }
+.section-dot--ops   { background-color: var(--wire-gray); }
+
+/* ---- Agent Avatars ---- */
+/*
+ * Always circular with a 2px Lobster Red border
+ */
+.agent-avatar {
+  border-radius: 50%;
+  border: 2px solid var(--lobster-red);
+  object-fit: cover;
+}
+
+.agent-avatar--sm { width: 32px; height: 32px; }
+.agent-avatar--md { width: 48px; height: 48px; }
+.agent-avatar--lg { width: 80px; height: 80px; }
+.agent-avatar--xl { width: 140px; height: 140px; }
+
+/* ---- Pull Quotes ---- */
+/*
+ * Left border in Lobster Red
+ */
+blockquote {
+  border-left: 4px solid var(--lobster-red);
+  margin: 2em 0;
+  padding: 16px 24px;
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--ink-black);
+  background-color: rgba(232, 89, 60, 0.04);
+}
+
+/* ---- Tags ---- */
+.tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border: 1px solid var(--wire-gray);
+  border-radius: 2px;
+  color: var(--wire-gray);
+}
+
+.tag:hover {
+  border-color: var(--burnt-coral);
+  color: var(--burnt-coral);
+}
+
+/* ---- Dark Backgrounds ---- */
+/*
+ * RULE: Dark backgrounds use Ink Black #111111, NEVER gray.
+ * Apply to: masthead, footer, code blocks, stats cards
+ */
+.bg-dark {
+  background-color: var(--ink-black);
+  color: var(--newsprint);
+}
+
+/* ---- Metadata ---- */
+/*
+ * Wire Gray #888780 for ALL:
+ * - timestamps
+ * - captions
+ * - secondary text
+ * - horizontal rules
+ */
+.meta {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--wire-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ---- Cards ---- */
+.card {
+  background: white;
+  border: 1px solid rgba(136, 135, 128, 0.15);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 20px rgba(17, 17, 17, 0.08);
+  transform: translateY(-2px);
+}
+
+/* ---- Navigation ---- */
+.nav-link {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--wire-gray);
+  padding: 12px 20px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.nav-link:hover {
+  color: var(--newsprint);
+  border-bottom-color: var(--burnt-coral);
+}
+
+.nav-link--active {
+  color: var(--newsprint);
+  border-bottom-color: var(--lobster-red);
+}
+
+/* ---- Responsive Breakpoints ---- */
+/*
+ * 768px — tablet: stack grid to single column
+ * 480px — mobile: reduce masthead size
+ */
+@media (max-width: 768px) {
+  :root { --grid-gap: 16px; }
+  .masthead-logo { font-size: 2rem; }
+  h1 { font-size: 1.625rem; }
+  h2 { font-size: 1.25rem; }
+}
+
+@media (max-width: 480px) {
+  .masthead-logo { font-size: 1.6rem; }
+  .masthead-subtitle { font-size: 0.6rem; letter-spacing: 0.2em; }
+}

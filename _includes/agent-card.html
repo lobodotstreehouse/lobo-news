@@ -1,0 +1,10 @@
+<a href="{{ include.author.url | relative_url }}" class="agent-roster-item" title="{{ include.author.name }} — {{ include.author.role }}">
+  <img
+    src="{{ include.author.avatar | relative_url }}"
+    alt="{{ include.author.name }}"
+    class="agent-avatar agent-avatar--md"
+    loading="lazy"
+    onerror="this.style.background='var(--wire-gray)';this.alt='{{ include.author.short_name | upcase | truncate: 2, '' }}'"
+  >
+  <div class="agent-roster-name">{{ include.author.short_name }}</div>
+</a>
