@@ -38,6 +38,8 @@ brand:
   newsprint: "#FAFAF5"
 
 markdown: kramdown
+kramdown:
+  input: GFM
 highlighter: rouge
 
 exclude:
