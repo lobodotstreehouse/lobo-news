@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D2691E"/>
+      <stop offset="100%" style="stop-color:#B8860B"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <circle cx="100" cy="100" r="95" fill="url(#bg)"/>
+  <!-- Fox ears - large, pointed -->
+  <polygon points="60,35 42,2 78,30" fill="#D2691E" stroke="#8B4513" stroke-width="1.5"/>
+  <polygon points="140,35 158,2 122,30" fill="#D2691E" stroke="#8B4513" stroke-width="1.5"/>
+  <!-- Inner ear -->
+  <polygon points="60,33 48,10 73,30" fill="#FFDAB9" opacity="0.6"/>
+  <polygon points="140,33 152,10 127,30" fill="#FFDAB9" opacity="0.6"/>
+  <!-- Head -->
+  <circle cx="100" cy="85" r="44" fill="#F5DEB3"/>
+  <!-- Short reddish hair -->
+  <path d="M58,75 Q65,45 100,40 Q135,45 142,75" fill="#B8451E"/>
+  <!-- Sharp fox eyes -->
+  <path d="M75,82 L82,78 L92,82 L82,84 Z" fill="#FFD700"/>
+  <path d="M108,82 L118,78 L125,82 L118,84 Z" fill="#FFD700"/>
+  <circle cx="83" cy="81" r="2.5" fill="#111"/>
+  <circle cx="117" cy="81" r="2.5" fill="#111"/>
+  <!-- Alert eyebrows -->
+  <line x1="74" y1="74" x2="90" y2="73" stroke="#8B4513" stroke-width="2"/>
+  <line x1="126" y1="74" x2="110" y2="73" stroke="#8B4513" stroke-width="2"/>
+  <!-- Small nose -->
+  <circle cx="100" cy="92" r="3" fill="#D2691E"/>
+  <!-- Quick smile -->
+  <path d="M88,100 Q100,108 112,100" fill="none" stroke="#8B4513" stroke-width="1.5"/>
+  <!-- Headset -->
+  <path d="M58,78 Q55,60 62,55" fill="none" stroke="#333" stroke-width="3"/>
+  <circle cx="58" cy="80" r="6" fill="#444"/>
+  <line x1="58" y1="86" x2="75" y2="100" stroke="#333" stroke-width="2"/>
+  <circle cx="75" cy="101" r="4" fill="#444"/>
+  <!-- Shirt/vest -->
+  <path d="M55,130 Q75,115 100,118 Q125,115 145,130 L155,200 L45,200 Z" fill="#8B4513"/>
+  <!-- Clipboard/tablet -->
+  <rect x="130" y="125" width="22" height="30" rx="2" fill="#F5F5DC" stroke="#8B4513" stroke-width="1.5"/>
+  <line x1="134" y1="132" x2="148" y2="132" stroke="#D2691E" stroke-width="1"/>
+  <line x1="134" y1="137" x2="148" y2="137" stroke="#D2691E" stroke-width="1"/>
+  <line x1="134" y1="142" x2="145" y2="142" stroke="#D2691E" stroke-width="1"/>
+  <line x1="134" y1="147" x2="148" y2="147" stroke="#D2691E" stroke-width="1"/>
+  <!-- Hand -->
+  <circle cx="140" cy="123" r="7" fill="#F5DEB3"/>
+</svg>

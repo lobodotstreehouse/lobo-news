@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFF0"/>
+      <stop offset="100%" style="stop-color:#4B0040"/>
+    </linearGradient>
+  </defs>
+  <!-- Background - warm ivory to deep plum -->
+  <circle cx="100" cy="100" r="95" fill="url(#bg)"/>
+  <!-- Cat ears -->
+  <polygon points="62,35 50,8 78,30" fill="#4B0040" stroke="#FFFFF0" stroke-width="1"/>
+  <polygon points="138,35 150,8 122,30" fill="#4B0040" stroke="#FFFFF0" stroke-width="1"/>
+  <polygon points="63,33 54,14 74,30" fill="#FFB6C1" opacity="0.4"/>
+  <polygon points="137,33 146,14 126,30" fill="#FFB6C1" opacity="0.4"/>
+  <!-- Head - willowy, elegant -->
+  <ellipse cx="100" cy="84" rx="40" ry="44" fill="#F5E6D3"/>
+  <!-- Flowing dark hair -->
+  <path d="M62,78 Q68,40 100,35 Q132,40 138,78" fill="#2a0a20"/>
+  <path d="M62,78 Q55,90 52,110" fill="#2a0a20"/>
+  <path d="M138,78 Q145,90 148,110" fill="#2a0a20"/>
+  <!-- Thoughtful cat eyes -->
+  <ellipse cx="84" cy="82" rx="7" ry="6" fill="white"/>
+  <ellipse cx="116" cy="82" rx="7" ry="6" fill="white"/>
+  <ellipse cx="85" cy="82" rx="4" ry="5" fill="#4B0040"/>
+  <ellipse cx="117" cy="82" rx="4" ry="5" fill="#4B0040"/>
+  <ellipse cx="85" cy="82" rx="1.5" ry="4" fill="black"/>
+  <ellipse cx="117" cy="82" rx="1.5" ry="4" fill="black"/>
+  <circle cx="86" cy="80" r="1.5" fill="white"/>
+  <circle cx="118" cy="80" r="1.5" fill="white"/>
+  <!-- Delicate brows -->
+  <path d="M74,74 Q84,70 93,74" fill="none" stroke="#2a0a20" stroke-width="1.5"/>
+  <path d="M107,74 Q116,70 126,74" fill="none" stroke="#2a0a20" stroke-width="1.5"/>
+  <!-- Small nose -->
+  <path d="M98,89 L100,94 L102,89" fill="none" stroke="#c0a090" stroke-width="1"/>
+  <!-- Measured, thoughtful expression -->
+  <path d="M92,102 Q100,106 108,102" fill="none" stroke="#7a5a50" stroke-width="1.2"/>
+  <!-- Comfortable creative top -->
+  <path d="M55,130 Q75,118 100,120 Q125,118 145,130 L155,200 L45,200 Z" fill="#FFFFF0" stroke="#4B0040" stroke-width="0.5"/>
+  <!-- Ink-stained fingers holding notebook -->
+  <rect x="130" y="130" width="20" height="28" rx="2" fill="#FFFFF0" stroke="#4B0040" stroke-width="1.5"/>
+  <!-- Notebook lines -->
+  <line x1="134" y1="137" x2="146" y2="137" stroke="#4B0040" stroke-width="0.5" opacity="0.5"/>
+  <line x1="134" y1="141" x2="146" y2="141" stroke="#4B0040" stroke-width="0.5" opacity="0.5"/>
+  <line x1="134" y1="145" x2="144" y2="145" stroke="#4B0040" stroke-width="0.5" opacity="0.5"/>
+  <line x1="134" y1="149" x2="146" y2="149" stroke="#4B0040" stroke-width="0.5" opacity="0.5"/>
+  <!-- Correction mark red -->
+  <path d="M136,137 L139,140 L142,135" fill="none" stroke="#DC143C" stroke-width="1.5"/>
+  <!-- Ink-stained hand -->
+  <circle cx="140" cy="128" r="7" fill="#F5E6D3"/>
+  <circle cx="138" cy="126" r="2" fill="#2a0a20" opacity="0.4"/>
+  <circle cx="143" cy="129" r="1.5" fill="#2a0a20" opacity="0.3"/>
+</svg>
