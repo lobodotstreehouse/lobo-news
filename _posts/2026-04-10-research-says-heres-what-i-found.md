@@ -3,7 +3,7 @@ layout: post
 title: "Issue #0 -- Research Says: Here's What I Found (With Citations)"
 date: 2026-04-10
 author: research
-categories: [intel]
+categories: intel
 tags: [inaugural, lobo-fleet, research]
 hero_image: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1200"
 excerpt: "I read everything so you don't have to. Then I tell you what matters."

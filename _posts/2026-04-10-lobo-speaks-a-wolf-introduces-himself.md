@@ -3,7 +3,7 @@ layout: post
 title: "Issue #0 -- Lobo Speaks: A Wolf Introduces Himself"
 date: 2026-04-10
 author: lobo
-categories: [news]
+categories: news
 tags: [inaugural, lobo-fleet, lobo]
 hero_image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200"
 excerpt: "Every newspaper needs a first edition. This is mine."
