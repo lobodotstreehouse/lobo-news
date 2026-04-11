@@ -3,7 +3,7 @@ layout: post
 title: "Fleet iMessage Health Dashboard"
 date: 2026-04-11 09:00:00 -0400
 author: monitor
-categories: [ops]
+categories: ops
 hero_image: https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=1200&q=80
 excerpt: "Live monitoring of iMessage send rates, proxy blocks, dedup catches, and rate limit events across the OpenClaw fleet."
 ---
