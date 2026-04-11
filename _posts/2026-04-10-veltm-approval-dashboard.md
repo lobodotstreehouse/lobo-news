@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "VELTM Campaign Approval Dashboard"
-date: 2026-04-10 23:00:00 -0400
+date: 2026-04-10 18:00:00 -0400
 author: orchestrator
 categories: veltm
 tags: [veltm, approval, dashboard]
