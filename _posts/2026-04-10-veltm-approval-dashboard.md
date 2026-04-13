@@ -6,359 +6,240 @@ author: orchestrator
 categories: veltm
 tags: [veltm, approval, dashboard]
 hero_image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200"
-excerpt: "Central approval tracker for all VELTM Seven Springs campaign assets."
+excerpt: "Central approval tracker for all VELTM Butler Button campaign assets — built from Brand Guidelines + Campaign Playbook Apr 2026."
 ---
 
 <style>
-.dashboard-section { margin: 2rem 0; }
-.dashboard-section h2 { color: #1a3c34; border-bottom: 3px solid #2d8a6e; padding-bottom: 8px; font-size: 1.4rem; }
-.dashboard-section h3 { color: #333; font-size: 1.1rem; margin-top: 1.5rem; }
-.overview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0; }
-.overview-card { background: #f0f7f4; border-radius: 8px; padding: 1.2rem; border-left: 4px solid #2d8a6e; }
-.overview-card .label { font-size: 0.8rem; color: #666; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 4px; }
-.overview-card .value { font-size: 1.1rem; color: #1a3c34; font-weight: bold; margin: 0; }
-table.approval-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.95rem; }
-table.approval-table th { background: #1a3c34; color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
-table.approval-table td { padding: 10px 12px; border-bottom: 1px solid #e8e8e8; vertical-align: middle; }
-table.approval-table tr:hover { background: #f9fafb; }
-.status-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: 600; white-space: nowrap; }
-.status-draft { background: #fff3cd; color: #856404; }
-.status-review { background: #fff3cd; color: #856404; }
-.status-pending { background: #e8e8e8; color: #666; }
-.status-approved { background: #d4edda; color: #155724; }
-.status-blocked { background: #f8d7da; color: #721c24; }
-.status-live { background: #cce5ff; color: #004085; }
-.approval-chain { background: #f8f9fa; border-radius: 8px; padding: 1.5rem; margin: 1rem 0; }
-.approval-step { display: flex; align-items: flex-start; margin: 0.8rem 0; padding-left: 0.5rem; }
-.step-number { background: #2d8a6e; color: #fff; width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85rem; margin-right: 12px; flex-shrink: 0; }
-.step-text { padding-top: 3px; }
-.checklist { list-style: none; padding: 0; margin: 1rem 0; }
-.checklist li { padding: 8px 0; border-bottom: 1px solid #eee; font-size: 0.95rem; }
-.checklist li:last-child { border-bottom: none; }
-.gate-label { display: inline-block; background: #e8e8e8; color: #333; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-left: 8px; text-transform: uppercase; }
+:root { --indigo: #4F46E5; --purple: #9333EA; --deep: #312E81; --near-black: #09090B; --lavender: #F5F3FF; --gray: #4B5563; }
+.db-wrap { font-family: Arial, sans-serif; }
+.db-header { background: linear-gradient(135deg, #4F46E5, #9333EA); color: #fff; border-radius: 10px; padding: 28px 32px; margin-bottom: 28px; }
+.db-header h1 { font-family: Georgia, serif; font-size: 1.6rem; margin: 0 0 6px; color: #fff; }
+.db-header p { margin: 0; font-size: 0.85rem; opacity: 0.8; }
+.stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin-bottom: 28px; }
+.stat { background: var(--lavender); border-radius: 8px; padding: 16px 20px; border-left: 4px solid var(--indigo); }
+.stat .n { font-size: 1.8rem; font-weight: 700; color: var(--indigo); font-family: Georgia, serif; line-height: 1; }
+.stat .l { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gray); margin-top: 4px; }
+.section-title { font-family: Georgia, serif; font-size: 1.15rem; font-weight: bold; color: var(--near-black); border-bottom: 2px solid var(--indigo); padding-bottom: 6px; margin: 28px 0 14px; }
+table.at { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin-bottom: 20px; }
+table.at th { background: var(--near-black); color: #fff; padding: 8px 12px; text-align: left; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; }
+table.at td { padding: 7px 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top; }
+table.at tr:nth-child(even) td { background: var(--lavender); }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+.badge-ready   { background: #d1fae5; color: #065f46; }
+.badge-pending { background: #fef3c7; color: #92400e; }
+.badge-blocked { background: #fee2e2; color: #991b1b; }
+.badge-review  { background: #e0e7ff; color: #3730a3; }
+.campaign-block { border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 20px; overflow: hidden; }
+.campaign-header { background: linear-gradient(135deg, #4F46E5, #9333EA); color: #fff; padding: 12px 18px; display: flex; justify-content: space-between; align-items: center; }
+.campaign-header h3 { margin: 0; font-family: Georgia, serif; font-size: 1rem; color: #fff; }
+.campaign-header .obj { font-size: 0.75rem; opacity: 0.8; margin-top: 2px; }
+.campaign-body { padding: 0; }
+.note-box { background: #fef3c7; border-left: 4px solid #f59e0b; padding: 12px 16px; margin: 0 0 20px; border-radius: 0 6px 6px 0; font-size: 0.82rem; }
+.note-box strong { color: #92400e; }
+.cta-btn { display: inline-block; background: linear-gradient(135deg, #4F46E5, #9333EA); color: #fff; padding: 8px 18px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; text-decoration: none; margin-top: 4px; }
 </style>
 
-<!-- ============================================ -->
-<!-- SECTION 1: CAMPAIGN OVERVIEW                 -->
-<!-- ============================================ -->
+<div class="db-wrap">
 
-<div class="dashboard-section">
-<h2>Campaign Overview</h2>
-
-<div class="overview-grid">
-  <div class="overview-card">
-    <p class="label">Target Audience</p>
-    <p class="value">Seven Springs CC Snowbirds</p>
-  </div>
-  <div class="overview-card">
-    <p class="label">Campaign Theme</p>
-    <p class="value">Summer 2026 Grandkid Vacations</p>
-  </div>
-  <div class="overview-card">
-    <p class="label">Entry Offer</p>
-    <p class="value">Trip Planning &mdash; $25/country</p>
-  </div>
-  <div class="overview-card">
-    <p class="label">Destinations</p>
-    <p class="value">Bali, Thailand, Sri Lanka, Singapore, Philippines</p>
-  </div>
+<div class="db-header">
+  <h1>VELTM Campaign Approval Dashboard</h1>
+  <p>Butler Button Awareness &amp; Lead Generation — April 2026 &nbsp;·&nbsp; Built from Brand Guidelines + Campaign Playbook</p>
 </div>
 
-<h3>Upsell Path</h3>
+<div class="stat-row">
+  <div class="stat"><div class="n">5</div><div class="l">Email Templates</div></div>
+  <div class="stat"><div class="n">9</div><div class="l">Social Posts</div></div>
+  <div class="stat"><div class="n">5</div><div class="l">FB Group Posts</div></div>
+  <div class="stat"><div class="n">6</div><div class="l">WhatsApp Msgs</div></div>
+  <div class="stat"><div class="n">5</div><div class="l">Campaigns</div></div>
+  <div class="stat"><div class="n">25</div><div class="l">Total Assets</div></div>
+</div>
 
-<table class="approval-table">
-<thead>
-<tr><th>Tier</th><th>Service</th><th>Price</th><th>Description</th></tr>
-</thead>
+<div class="note-box">
+  <strong>⚠️ Zoho Upload Blocked</strong> — Campaign creation API returns error 1004 (plan restriction). All 5 HTML email templates are built and ready. Two actions required before launch: (1) Enable API access in Zoho Campaigns Settings, (2) Disable double opt-in on "My Sample List" (Campaigns → Lists → Signup Settings). Assets are at <code>/tmp/veltm-campaign-assets/</code> on the Mac mini.
+</div>
+
+---
+
+<div class="section-title">Campaign 1 — "Your Butler Awaits" &nbsp;<span class="badge badge-ready">Assets Ready</span></div>
+<p style="font-size:0.85rem;color:var(--gray);">Objective: Introduce Butler Button to cold audiences. 3-email drip + 3 social posts. Week 1.</p>
+
+<div class="campaign-block">
+<div class="campaign-header"><div><h3>Email Sequence (3 emails, 3 days apart)</h3><div class="obj">Welcome drip: triggered on new contact creation</div></div><span class="badge badge-ready">3 of 3 Built</span></div>
+<div class="campaign-body">
+<table class="at">
+<thead><tr><th>Email</th><th>Subject</th><th>Preview Text</th><th>File</th><th>Status</th></tr></thead>
 <tbody>
-<tr><td><strong>Entry</strong></td><td>Trip Planning</td><td>$25/country</td><td>Personalized family itinerary from local experts</td></tr>
-<tr><td><strong>Mid</strong></td><td>8-Hour Concierge</td><td>$25/day</td><td>Daytime local support for activities and logistics</td></tr>
-<tr><td><strong>Premium</strong></td><td>24-Hour Concierge</td><td>$100/day</td><td>Round-the-clock dedicated concierge support</td></tr>
+<tr><td>E1 — Day 0</td><td>Meet your personal travel butler</td><td>Trip planning and on-trip help from $25/day</td><td>c1-email1-introduction.html</td><td><span class="badge badge-review">Awaiting Harleen Review</span></td></tr>
+<tr><td>E2 — Day 3</td><td>How Butler Button works in 3 simple steps</td><td>Book. Connect. Text. That's it.</td><td>c1-email2-how-it-works.html</td><td><span class="badge badge-review">Awaiting Harleen Review</span></td></tr>
+<tr><td>E3 — Day 6</td><td>1,000+ travelers already trust Butler Button</td><td>From forgotten chargers to last-minute reservations</td><td>c1-email3-social-proof.html</td><td><span class="badge badge-review">Awaiting Harleen Review</span></td></tr>
 </tbody>
 </table>
 </div>
-
-<!-- ============================================ -->
-<!-- SECTION 2: EMAIL NURTURE SERIES              -->
-<!-- ============================================ -->
-
-<div class="dashboard-section">
-<h2>Email Nurture Series &mdash; Approval Status</h2>
-
-<table class="approval-table">
-<thead>
-<tr>
-<th>#</th>
-<th>Subject Line</th>
-<th>Status</th>
-<th>BizOps Draft</th>
-<th>Carl (CSMO)</th>
-<th>Ansh (CEO)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>1</strong></td>
-<td>This Summer, Give Your Grandkids the World</td>
-<td><span class="status-badge status-draft">&#9203; Draft Ready</span></td>
-<td><span class="status-badge status-approved">&#128994; Done</span></td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-</tr>
-<tr>
-<td><strong>2</strong></td>
-<td>Why Families Choose a Travel Concierge</td>
-<td><span class="status-badge status-draft">&#9203; Draft Ready</span></td>
-<td><span class="status-badge status-approved">&#128994; Done</span></td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-</tr>
-<tr>
-<td><strong>3</strong></td>
-<td>The Grandparents Who Changed Their Summers</td>
-<td><span class="status-badge status-draft">&#9203; Draft Ready</span></td>
-<td><span class="status-badge status-approved">&#128994; Done</span></td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-</tr>
-<tr>
-<td><strong>4</strong></td>
-<td>Top 5 Family Adventures in Southeast Asia</td>
-<td><span class="status-badge status-draft">&#9203; Draft Ready</span></td>
-<td><span class="status-badge status-approved">&#128994; Done</span></td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-</tr>
-<tr>
-<td><strong>5</strong></td>
-<td>Your First Trip Plan is Just $25</td>
-<td><span class="status-badge status-draft">&#9203; Draft Ready</span></td>
-<td><span class="status-badge status-approved">&#128994; Done</span></td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-</tr>
-</tbody>
-</table>
-
-<p><em>All 5 email HTML drafts created in Zoho Campaigns. Campaign assets ready for review.</em></p>
 </div>
 
-<!-- ============================================ -->
-<!-- SECTION 3: INSTAGRAM CAMPAIGN                -->
-<!-- ============================================ -->
-
-<div class="dashboard-section">
-<h2>Instagram Campaign &mdash; Approval Status</h2>
-
-<table class="approval-table">
-<thead>
-<tr>
-<th>Week</th>
-<th>Asset</th>
-<th>Format</th>
-<th>Status</th>
-<th>Content Draft</th>
-<th>Carl (CSMO)</th>
-<th>Ansh (CEO)</th>
-</tr>
-</thead>
+<div class="campaign-block">
+<div class="campaign-header"><div><h3>Social Posts</h3><div class="obj">Instagram, Facebook, LinkedIn</div></div><span class="badge badge-ready">3 of 3 Built</span></div>
+<div class="campaign-body">
+<table class="at">
+<thead><tr><th>Post ID</th><th>Platform</th><th>Format</th><th>Visual Direction</th><th>Status</th></tr></thead>
 <tbody>
-<tr>
-<td><strong>1</strong></td>
-<td>&ldquo;Grandkids &amp; Getaways&rdquo; launch</td>
-<td>Carousel</td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-</tr>
-<tr>
-<td><strong>1</strong></td>
-<td>Bali family experience</td>
-<td>Reel</td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-</tr>
-<tr>
-<td><strong>2</strong></td>
-<td>Thailand cooking class</td>
-<td>Story</td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-</tr>
-<tr>
-<td><strong>2</strong></td>
-<td>Singapore family attractions</td>
-<td>Carousel</td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-</tr>
+<tr><td>C1-IG-1</td><td>Instagram + Facebook</td><td>Single image</td><td>Indigo→Purple gradient bg, "Your Butler Awaits" in white Georgia</td><td><span class="badge badge-review">Awaiting Harleen Review</span></td></tr>
+<tr><td>C1-IG-2</td><td>Instagram + Facebook</td><td>Carousel (3 slides)</td><td>Lavender bg, 3 icon panels: Book → Connect → Text</td><td><span class="badge badge-review">Awaiting Harleen Review</span></td></tr>
+<tr><td>C1-LI-1</td><td>LinkedIn</td><td>Single image</td><td>VELTM Indigo bg, world map watermark, professional headline</td><td><span class="badge badge-review">Awaiting Harleen Review</span></td></tr>
 </tbody>
 </table>
 </div>
+</div>
 
-<!-- ============================================ -->
-<!-- SECTION 4: LANDING PAGE                      -->
-<!-- ============================================ -->
+---
 
-<div class="dashboard-section">
-<h2>Landing Page &mdash; Approval Status</h2>
+<div class="section-title">Campaign 2 — "$25 Travel Days" &nbsp;<span class="badge badge-ready">Assets Ready</span></div>
+<p style="font-size:0.85rem;color:var(--gray);">Objective: Lead with the $25/day price point. Facebook Groups + WhatsApp Groups + Social. Week 2.</p>
 
-<table class="approval-table">
-<thead>
-<tr><th>Element</th><th>Status</th><th>Details</th></tr>
-</thead>
+<div class="campaign-block">
+<div class="campaign-header"><div><h3>Facebook Group Posts (3)</h3><div class="obj">Manual posting by Harleen — peer-to-peer tone</div></div><span class="badge badge-ready">3 of 3 Built</span></div>
+<div class="campaign-body">
+<table class="at">
+<thead><tr><th>Post ID</th><th>Hook</th><th>Status</th></tr></thead>
 <tbody>
-<tr>
-<td><strong>Page URL</strong></td>
-<td><span class="status-badge status-pending">&#9203; TBD</span></td>
-<td>veltmtours.com/family (placeholder)</td>
-</tr>
-<tr>
-<td><strong>Design</strong></td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-<td>Layout and visual design awaiting creation</td>
-</tr>
-<tr>
-<td><strong>Copy</strong></td>
-<td><span class="status-badge status-draft">&#9203; Draft Ready</span></td>
-<td>Aligned with email series messaging</td>
-</tr>
-<tr>
-<td><strong>Form Fields</strong></td>
-<td><span class="status-badge status-draft">&#9203; Specified</span></td>
-<td>Name, Email, Trip Interest, Grandchildren Count, Preferred Dates</td>
-</tr>
-<tr>
-<td><strong>Mobile Test</strong></td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-<td>Responsive layout verification on mobile devices</td>
-</tr>
-<tr>
-<td><strong>iPad Test</strong></td>
-<td><span class="status-badge status-pending">&#9203; Pending</span></td>
-<td>Tablet layout and touch target verification</td>
-</tr>
+<tr><td>FB-C2-1</td><td>"What $25/day actually gets you when traveling"</td><td><span class="badge badge-review">Awaiting Harleen Review</span></td></tr>
+<tr><td>FB-C2-2</td><td>"The most underrated travel hack of 2026"</td><td><span class="badge badge-review">Awaiting Harleen Review</span></td></tr>
+<tr><td>FB-C2-3</td><td>"Planning a trip? Here's a shortcut"</td><td><span class="badge badge-review">Awaiting Harleen Review</span></td></tr>
 </tbody>
 </table>
 </div>
-
-<!-- ============================================ -->
-<!-- SECTION 5: QA CHECKLIST                      -->
-<!-- ============================================ -->
-
-<div class="dashboard-section">
-<h2>QA Checklist Summary</h2>
-
-<p>Full test plan: <a href="/veltm/2026/04/10/veltm-test-plan.html">VELTM QA Test Plan</a></p>
-
-<p><strong>Critical gates &mdash; all must pass before GO LIVE:</strong></p>
-
-<ul class="checklist">
-<li>&#9744; <strong>Pricing accuracy</strong> &mdash; All pricing matches SOP ($25/country trip planning, $25/day 8hr concierge, $100/day 24hr concierge) <span class="gate-label">Critical</span></li>
-<li>&#9744; <strong>No Never Event language</strong> &mdash; Zero instances of banned phrases or claims <span class="gate-label">Critical</span></li>
-<li>&#9744; <strong>8-country serviceability lock</strong> &mdash; Only Bali, Thailand, Sri Lanka, Singapore, Philippines, Vietnam, Cambodia, Malaysia referenced <span class="gate-label">Critical</span></li>
-<li>&#9744; <strong>Multi-gen family imagery only</strong> &mdash; All photos show multi-generational families, no couples-only or solo imagery <span class="gate-label">Brand</span></li>
-<li>&#9744; <strong>Font size >= 16px</strong> &mdash; All body text meets minimum readability standard <span class="gate-label">Accessibility</span></li>
-<li>&#9744; <strong>Promise Guard passed</strong> &mdash; No guarantees, superlatives, or unsubstantiated claims <span class="gate-label">Legal</span></li>
-</ul>
 </div>
 
-<!-- ============================================ -->
-<!-- SECTION 6: APPROVAL CHAIN                    -->
-<!-- ============================================ -->
-
-<div class="dashboard-section">
-<h2>Approval Chain</h2>
-
-<div class="approval-chain">
-<div class="approval-step">
-<span class="step-number">1</span>
-<span class="step-text"><strong>BizOps / Content agents</strong> draft all campaign assets (emails, social, landing page copy)</span>
-</div>
-<div class="approval-step">
-<span class="step-number">2</span>
-<span class="step-text"><strong>Carl Beauregard (CSMO)</strong> reviews each asset &mdash; approves or requests changes</span>
-</div>
-<div class="approval-step">
-<span class="step-number">3</span>
-<span class="step-text"><strong>Ansh Dixit (CEO)</strong> final brand approval on all customer-facing materials</span>
-</div>
-<div class="approval-step">
-<span class="step-number">4</span>
-<span class="step-text"><strong>Monitor agent</strong> runs full QA test plan against all approved assets</span>
-</div>
-<div class="approval-step">
-<span class="step-number">5</span>
-<span class="step-text"><strong>All tests pass</strong> &rarr; <span class="status-badge status-live">GO LIVE</span></span>
-</div>
-</div>
-</div>
-
-<!-- ============================================ -->
-<!-- ZOHO CRM CONFIGURATION NOTES                 -->
-<!-- ============================================ -->
-
-<div class="dashboard-section">
-<h2>Zoho CRM Configuration &mdash; Required Setup</h2>
-
-<p><em>The following custom fields and pipeline need to be created in Zoho CRM. These require admin access to CRM Settings &gt; Modules &gt; Fields.</em></p>
-
-<table class="approval-table">
-<thead>
-<tr><th>Field / Asset</th><th>Type</th><th>Values</th><th>Module</th><th>Status</th></tr>
-</thead>
+<div class="campaign-block">
+<div class="campaign-header"><div><h3>WhatsApp Messages (3)</h3><div class="obj">Manual posting by Harleen — under 200 chars each</div></div><span class="badge badge-ready">3 of 3 Built</span></div>
+<div class="campaign-body">
+<table class="at">
+<thead><tr><th>Msg ID</th><th>Opening</th><th>Status</th></tr></thead>
 <tbody>
-<tr>
-<td><strong>Community</strong></td>
-<td>Picklist</td>
-<td>Seven Springs CC, Other</td>
-<td>Contacts / Leads</td>
-<td><span class="status-badge status-pending">&#9203; Manual Setup</span></td>
-</tr>
-<tr>
-<td><strong>Trip Type</strong></td>
-<td>Picklist</td>
-<td>Multi-Gen Family, Couple, Solo, Group</td>
-<td>Contacts / Leads</td>
-<td><span class="status-badge status-pending">&#9203; Manual Setup</span></td>
-</tr>
-<tr>
-<td><strong>Grandchildren Count</strong></td>
-<td>Number</td>
-<td>&mdash;</td>
-<td>Contacts / Leads</td>
-<td><span class="status-badge status-pending">&#9203; Manual Setup</span></td>
-</tr>
-<tr>
-<td><strong>Preferred Season</strong></td>
-<td>Picklist</td>
-<td>Summer 2026, Fall 2026, Winter 2026-27</td>
-<td>Contacts / Leads</td>
-<td><span class="status-badge status-pending">&#9203; Manual Setup</span></td>
-</tr>
-<tr>
-<td><strong>QA Status</strong></td>
-<td>Picklist</td>
-<td>Pending, India QA Approved, CSMO Approved, CEO Approved, Live</td>
-<td>Deals</td>
-<td><span class="status-badge status-pending">&#9203; Manual Setup</span></td>
-</tr>
-<tr>
-<td><strong>VELTM Trip Planning Pipeline</strong></td>
-<td>Deal Pipeline</td>
-<td>Lead &rarr; Qualified &rarr; Trip Plan Sent &rarr; Concierge Upsell &rarr; Booked &rarr; Completed</td>
-<td>Deals</td>
-<td><span class="status-badge status-pending">&#9203; Manual Setup</span></td>
-</tr>
+<tr><td>WA-C2-1</td><td>"Hey travelers! Just discovered something I had to share..."</td><td><span class="badge badge-review">Awaiting Harleen Review</span></td></tr>
+<tr><td>WA-C2-2</td><td>"Imagine you're in Bali and you want a sunset dinner spot..."</td><td><span class="badge badge-review">Awaiting Harleen Review</span></td></tr>
+<tr><td>WA-C2-3</td><td>"Quick one for anyone with upcoming travel plans..."</td><td><span class="badge badge-review">Awaiting Harleen Review</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="campaign-block">
+<div class="campaign-header"><div><h3>Social Posts (2)</h3><div class="obj">Instagram + Facebook</div></div><span class="badge badge-ready">2 of 2 Built</span></div>
+<div class="campaign-body">
+<table class="at">
+<thead><tr><th>Post ID</th><th>Visual</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>C2-IG-1</td><td>Near-black bg, "$25" in 72pt Indigo Georgia, value breakdown</td><td><span class="badge badge-review">Awaiting Harleen Review</span></td></tr>
+<tr><td>C2-IG-2</td><td>Bali scenario Reel/Story (5-frame sequence)</td><td><span class="badge badge-review">Awaiting Harleen Review</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+---
+
+<div class="section-title">Campaign 3 — "Destination Spotlight: Thailand" &nbsp;<span class="badge badge-ready">Assets Ready</span></div>
+<p style="font-size:0.85rem;color:var(--gray);">Objective: Provide travel value, warm audiences, introduce Butler naturally. All channels. Week 3.</p>
+
+<div class="campaign-block">
+<div class="campaign-header"><div><h3>All Channels</h3><div class="obj">Email + Social + Facebook Group + WhatsApp</div></div><span class="badge badge-ready">4 of 4 Built</span></div>
+<div class="campaign-body">
+<table class="at">
+<thead><tr><th>Asset</th><th>Subject / Hook</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>Email Newsletter</td><td>"Thailand: 5 insider tips your guidebook won't tell you" (c3-email1-thailand-spotlight.html)</td><td><span class="badge badge-review">Awaiting Harleen Review</span></td></tr>
+<tr><td>C3-IG-1 (Carousel)</td><td>"Thailand insider tip: the best pad thai in Bangkok isn't on Khao San Road" — 5-slide editorial carousel</td><td><span class="badge badge-review">Awaiting Harleen Review</span></td></tr>
+<tr><td>FB-C3-1</td><td>"Planning a trip to Thailand? Here's a thread of things I wish I'd known..."</td><td><span class="badge badge-review">Awaiting Harleen Review</span></td></tr>
+<tr><td>WA-C3-1</td><td>"Thailand tip: skip Friday Night Market in Chiang Mai..."</td><td><span class="badge badge-review">Awaiting Harleen Review</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+---
+
+<div class="section-title">Campaign 4 — "Stress-Free Stories" &nbsp;<span class="badge badge-ready">Assets Ready</span></div>
+<p style="font-size:0.85rem;color:var(--gray);">Objective: Social proof. Real-world Butler moments. All channels. Week 4.</p>
+
+<div class="campaign-block">
+<div class="campaign-header"><div><h3>All Channels</h3><div class="obj">Email + 2 Social Posts + Facebook Group + WhatsApp</div></div><span class="badge badge-ready">5 of 5 Built</span></div>
+<div class="campaign-body">
+<table class="at">
+<thead><tr><th>Asset</th><th>Hook</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>Email</td><td>"The travel problem no one talks about" (c4-email1-stress-free-stories.html)</td><td><span class="badge badge-review">Awaiting Harleen Review</span></td></tr>
+<tr><td>C4-IG-1</td><td>Split-screen: Without Butler / With Butler — problem→solution format</td><td><span class="badge badge-review">Awaiting Harleen Review</span></td></tr>
+<tr><td>C4-IG-2</td><td>"Things Butler Button assistants handled this week" — checklist format</td><td><span class="badge badge-review">Awaiting Harleen Review</span></td></tr>
+<tr><td>FB-C4-1</td><td>"Has this ever happened to you while traveling?"</td><td><span class="badge badge-review">Awaiting Harleen Review</span></td></tr>
+<tr><td>WA-C4-1</td><td>"Quick travel story: someone texted their Butler at 11pm in Rome..."</td><td><span class="badge badge-review">Awaiting Harleen Review</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+---
+
+<div class="section-title">Campaign 5 — "The 3-Step Challenge" &nbsp;<span class="badge badge-ready">Assets Ready</span></div>
+<p style="font-size:0.85rem;color:var(--gray);">Objective: Engagement + virality. Runs all month in parallel across WhatsApp + Facebook Groups + Social.</p>
+
+<div class="campaign-block">
+<div class="campaign-header"><div><h3>All Group Channels</h3><div class="obj">FB Groups + WhatsApp + Instagram/Facebook</div></div><span class="badge badge-ready">3 of 3 Built</span></div>
+<div class="campaign-body">
+<table class="at">
+<thead><tr><th>Asset</th><th>Hook</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>C5-IG-1</td><td>"3 Steps. 2 Minutes. Unlimited Travel Help." — bold Indigo typographic post</td><td><span class="badge badge-review">Awaiting Harleen Review</span></td></tr>
+<tr><td>FB-C5-1</td><td>"The 3-Step Travel Challenge: I challenge anyone here to plan a trip in under 2 minutes."</td><td><span class="badge badge-review">Awaiting Harleen Review</span></td></tr>
+<tr><td>WA-C5-1</td><td>"Travel challenge: can you plan a trip in 2 minutes?"</td><td><span class="badge badge-review">Awaiting Harleen Review</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+---
+
+<div class="section-title">Zoho Upload Status &nbsp;<span class="badge badge-blocked">Action Required</span></div>
+
+<div class="note-box">
+<strong>Campaign API: Error 1004 (plan restriction)</strong><br>
+All 5 HTML email templates are production-ready and on the Mac mini at <code>/tmp/veltm-campaign-assets/emails/</code>. The Zoho Campaigns API is returning error 1004 on all write endpoints — this is a plan-level restriction, not an authentication issue. To unblock:<br><br>
+<strong>Step 1:</strong> Zoho Campaigns → Settings → Integrations → API → Enable API Access<br>
+<strong>Step 2:</strong> Zoho Campaigns → Lists → My Sample List → Signup Settings → Disable double opt-in<br>
+<strong>Step 3:</strong> Once unblocked, Claude will upload all 5 campaigns automatically.<br><br>
+Until then, Harleen can upload manually: Zoho Campaigns → Campaigns → Create Campaign → HTML Campaign → paste HTML file contents.
+</div>
+
+<div class="section-title">Posting Schedule</div>
+
+<table class="at">
+<thead><tr><th>Week</th><th>Campaign</th><th>Channel</th><th>Content</th><th>Best Day</th><th>Best Time EST</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Your Butler Awaits</td><td>Email (automated)</td><td>3-email drip on new contact signup</td><td>—</td><td>—</td></tr>
+<tr><td>1</td><td>Your Butler Awaits</td><td>Instagram + Facebook</td><td>C1-IG-1 (intro) + C1-IG-2 (how it works)</td><td>Tue + Fri</td><td>9am + 12pm</td></tr>
+<tr><td>1</td><td>Your Butler Awaits</td><td>LinkedIn</td><td>C1-LI-1 (professional angle)</td><td>Wed</td><td>8am</td></tr>
+<tr><td>2</td><td>$25 Travel Days</td><td>Facebook Groups</td><td>FB-C2-1, FB-C2-2, FB-C2-3</td><td>Wed + Thu + Fri</td><td>1pm</td></tr>
+<tr><td>2</td><td>$25 Travel Days</td><td>WhatsApp Groups</td><td>WA-C2-1, WA-C2-2, WA-C2-3</td><td>Tue + Thu + Sat</td><td>10am</td></tr>
+<tr><td>2</td><td>$25 Travel Days</td><td>Instagram + Facebook</td><td>C2-IG-1 + C2-IG-2</td><td>Wed + Fri</td><td>12pm + 6pm</td></tr>
+<tr><td>3</td><td>Destination: Thailand</td><td>All channels</td><td>Email + C3-IG-1 + FB-C3-1 + WA-C3-1</td><td>Wed + Thu</td><td>9am + 1pm</td></tr>
+<tr><td>4</td><td>Stress-Free Stories</td><td>All channels</td><td>Email + C4-IG-1 + C4-IG-2 + FB-C4-1 + WA-C4-1</td><td>Tue–Thu</td><td>12pm + 3pm</td></tr>
+<tr><td>1–4</td><td>3-Step Challenge</td><td>Groups + Social</td><td>C5-IG-1 + FB-C5-1 + WA-C5-1 (ongoing)</td><td>Fri</td><td>3pm</td></tr>
 </tbody>
 </table>
 
-<p><strong>Note:</strong> Zoho CRM custom field and pipeline creation requires admin UI access (Setup &gt; Customization &gt; Modules and Fields). The API does not support field creation on the free/standard tier. Carl should create these manually or delegate to the CRM admin.</p>
+<div class="section-title">KPIs</div>
+
+<table class="at">
+<thead><tr><th>Metric</th><th>Target</th><th>Tool</th></tr></thead>
+<tbody>
+<tr><td>Email open rate</td><td>&gt; 25%</td><td>Zoho Campaigns analytics</td></tr>
+<tr><td>Email click-through rate</td><td>&gt; 3%</td><td>Zoho Campaigns analytics</td></tr>
+<tr><td>Social engagement rate</td><td>&gt; 4%</td><td>Zoho Social analytics</td></tr>
+<tr><td>Leads per week</td><td>&gt; 10</td><td>Zoho CRM pipeline</td></tr>
+<tr><td>Lead-to-booking conversion</td><td>&gt; 15%</td><td>Zoho CRM pipeline</td></tr>
+<tr><td>Cost per acquisition</td><td>&lt; $20</td><td>Zoho CRM + manual</td></tr>
+</tbody>
+</table>
+
 </div>
