@@ -57,12 +57,13 @@ code { background: #f3f4f6; padding: 1px 5px; border-radius: 3px; font-size: 0.8
 </div>
 
 <div class="stat-row">
-  <div class="stat"><div class="n">4</div><div class="l">Triggered Emails</div></div>
-  <div class="stat"><div class="n">9</div><div class="l">Brand Social Posts</div></div>
-  <div class="stat"><div class="n">16</div><div class="l">Team Advocate Posts</div></div>
-  <div class="stat"><div class="n">5</div><div class="l">FB Group Posts</div></div>
-  <div class="stat"><div class="n">6</div><div class="l">WhatsApp Msgs</div></div>
+  <div class="stat"><div class="n">5</div><div class="l">Triggered Emails</div></div>
+  <div class="stat"><div class="n">13</div><div class="l">Brand Social Posts</div></div>
+  <div class="stat"><div class="n">18</div><div class="l">Team Advocate Posts</div></div>
+  <div class="stat"><div class="n">8</div><div class="l">FB Group Posts</div></div>
+  <div class="stat"><div class="n">8</div><div class="l">WhatsApp Msgs</div></div>
   <div class="stat"><div class="n">1</div><div class="l">Social Selling Playbook</div></div>
+  <div class="stat"><div class="n">1</div><div class="l">Nashville Approval Page</div></div>
 </div>
 
 <div class="section-title">The 3-Step Funnel</div>
@@ -379,6 +380,98 @@ code { background: #f3f4f6; padding: 1px 5px; border-radius: 3px; font-size: 0.8
 ☐ <strong>Step 8:</strong> Disable double opt-in on Butler Button Onboarding list<br><br>
 Full step-by-step guide: <code>/tmp/veltm-campaign-assets/ZOHO-SETUP-GUIDE.md</code>
 </div>
+
+---
+
+<div class="section-title">Nashville Campaign — Buzz Family Trip &nbsp;<span class="badge badge-new">New · Apr 2026</span></div>
+<p style="font-size:0.85rem;color:var(--gray);">Multi-generational luxury trip proposal for 10 guests. Full approval page built and live — includes personalized itinerary, dining, experiences, and pricing. Assets below are for promoting Butler Button's family concierge capability using this trip as a case study.</p>
+
+<div class="info-box">
+  <strong>✅ Approval Page Live</strong> — Personalized Butler Button trip proposal for Buzz &amp; Family (Nashville, 5 days, 10 guests, 5★).<br>
+  <strong>→ <a href="https://lobodotstreehouse.github.io/veltm-butler-button/trip-approvals/buzz-nashville/" target="_blank">https://lobodotstreehouse.github.io/veltm-butler-button/trip-approvals/buzz-nashville/</a></strong><br><br>
+  Use this page as the primary CTA destination for all Nashville campaign assets below. It demonstrates the full Butler Button concierge experience end-to-end — from iMessage request to curated approval package.
+</div>
+
+<div class="campaign-block">
+<div class="campaign-header"><div><h3>Nashville — Brand Social Posts</h3><div class="obj">Instagram, Facebook, LinkedIn — Multi-gen family travel angle</div></div><span class="badge badge-ready">4 Built</span></div>
+<div class="campaign-body">
+<table class="at">
+<thead><tr><th>Post ID</th><th>Platform</th><th>Hook</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>NASH-IG-1</td><td>Instagram + Facebook</td><td>"Buzz texted us one afternoon. 5 days later, 10 family members had a fully planned 5-star Nashville itinerary." — single image, Nashville skyline, indigo gradient overlay</td><td><span class="badge badge-review">Review</span></td></tr>
+<tr><td>NASH-IG-2</td><td>Instagram</td><td>Carousel (5 slides): Day-by-day Nashville teaser — Ryman → Grand Ole Opry → Recording Session → Hot Chicken → Family Portrait. Each slide = one day. CTA on slide 5: "One text. Butler handles everything."</td><td><span class="badge badge-review">Review</span></td></tr>
+<tr><td>NASH-LI-1</td><td>LinkedIn</td><td>"What does a 5-star multi-generational trip for 10 actually look like? Here's the full plan we built from one iMessage." — links to approval page, professional tone, family travel market angle</td><td><span class="badge badge-review">Review</span></td></tr>
+<tr><td>NASH-FB-1</td><td>Facebook Groups</td><td>"Planning a family reunion or multi-gen trip? Here's an example of what Butler Button put together for a family of 10 in Nashville — full itinerary, every reservation locked before arrival." — peer tone, links to approval page</td><td><span class="badge badge-review">Review</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="campaign-block">
+<div class="campaign-header"><div><h3>Nashville — Team Advocate Posts</h3><div class="obj">Carl + Harleen personal content — family travel authority</div></div><span class="badge badge-new">2 Posts Ready</span></div>
+<div class="campaign-body">
+<table class="at">
+<thead><tr><th>Author</th><th>Theme</th><th>Format</th></tr></thead>
+<tbody>
+<tr><td>Carl</td><td>"A client texted me on a Tuesday asking if we could plan a Nashville trip for 10 — grandparents to grandkids. Here's what we delivered in 24 hours." — personal LinkedIn story, links to approval page</td><td>Written LinkedIn, 300–400 words</td></tr>
+<tr><td>Harleen</td><td>"Multi-generational travel is the fastest growing segment in luxury travel. Here's what it actually takes to plan it well — and why most families struggle." — social selling angle, positions Butler Button as the solution</td><td>Instagram carousel or Facebook post</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="campaign-block">
+<div class="campaign-header"><div><h3>Nashville — WhatsApp &amp; Facebook Group Messages</h3><div class="obj">Family travel groups, parent/grandparent travel communities</div></div><span class="badge badge-ready">3 Built</span></div>
+<div class="campaign-body">
+<table class="at">
+<thead><tr><th>Msg ID</th><th>Channel</th><th>Opening</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>NASH-WA-1</td><td>WhatsApp</td><td>"Planning a family trip with grandkids? We just put together a full Nashville plan for 3 generations — grandparents to grandkids. Worth a look if you're in that stage of life..."</td><td><span class="badge badge-review">Review</span></td></tr>
+<tr><td>NASH-FB-2</td><td>Facebook Groups</td><td>"Anyone else find it impossible to plan a trip when there are grandkids involved? Here's how one family handled it for a Nashville trip..."</td><td><span class="badge badge-review">Review</span></td></tr>
+<tr><td>NASH-WA-2</td><td>WhatsApp</td><td>"Nashville tip for families: the Grand Ole Opry has VIP seating options that work for all ages, and the Ryman backstage tour is better than expected with kids. We book both regularly."</td><td><span class="badge badge-review">Review</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="campaign-block">
+<div class="campaign-header"><div><h3>Nashville — Triggered Email Segment</h3><div class="obj">Add to existing autoresponder: family travel segment · TRAVEL_STYLE = "Family"</div></div><span class="badge badge-new">1 New Email Built</span></div>
+<div class="campaign-body">
+<table class="at">
+<thead><tr><th>Element</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Trigger</td><td>TRAVEL_STYLE = "Family" OR Destination contains "Nashville" — fires between Email 2 and Email 3</td></tr>
+<tr><td>Subject A</td><td>What a 5-star family trip actually looks like (real example)</td></tr>
+<tr><td>Subject B (test)</td><td><code>${FIRSTNAME|Traveler}</code>, here's what we planned for a family of 10</td></tr>
+<tr><td>Body</td><td>Brief story of the Buzz Nashville trip → approval page embed preview → "This is what your Butler can build for you" → CTA</td></tr>
+<tr><td>CTA</td><td>See the Full Trip Plan → <code>https://lobodotstreehouse.github.io/veltm-butler-button/trip-approvals/buzz-nashville/</code></td></tr>
+<tr><td>Status</td><td><span class="badge badge-review">Review</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="funnel-row" style="margin-top:1rem;">
+  <div class="funnel-step" style="background:#f5f3ff;">
+    <div class="step-num">10</div>
+    <div class="step-name">Guests</div>
+    <div class="step-desc">3 generations · Grandparents, parents, 5 grandkids</div>
+  </div>
+  <div class="funnel-step" style="background:#ede9fe;">
+    <div class="step-num">5</div>
+    <div class="step-name">Days</div>
+    <div class="step-desc">Full itinerary · Every reservation pre-booked</div>
+  </div>
+  <div class="funnel-step" style="background:#ddd6fe;">
+    <div class="step-num">$35–52K</div>
+    <div class="step-name">Trip Value</div>
+    <div class="step-desc">Accommodations · Dining · Experiences · Transport · Photography</div>
+  </div>
+</div>
+
+<p style="font-size:0.82rem;color:var(--gray);margin-top:1rem;">Approval page: <a href="https://lobodotstreehouse.github.io/veltm-butler-button/trip-approvals/buzz-nashville/" target="_blank"><code>lobodotstreehouse.github.io/veltm-butler-button/trip-approvals/buzz-nashville/</code></a></p>
+
+---
 
 <div class="section-title">KPIs</div>
 
